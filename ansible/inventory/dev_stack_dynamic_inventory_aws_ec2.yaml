@@ -1,0 +1,22 @@
+lugin: aws_ec2
+egions:
+ - "us-east-1"
+ilters:
+ tag:app-stack-name: APP_STACK_NAME
+ tag:environment: dev
+eyed_groups:
+ - key: tags['app-stack-name']
+   prefix: 'app_stack_'
+   separator: ''
+ - key: tags['swarm-role']
+   prefix: 'role_'
+   separator: ''
+ - key: tags['environment']
+   prefix: 'env_'
+   separator: ''
+ - key: tags['server']
+   separator: ''
+ostnames:
+ - "private-ip-address"
+ompose:
+ ansible_user: "'ec2-user'"
